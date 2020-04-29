@@ -29,13 +29,12 @@ namespace UITests
             using (IWebDriver driver = new ChromeDriver())
             {
                 // arrange
-                driver.Navigate().GoToUrl(historicalUrl);
-
+                var historicalSearchPage = new PageObjectModels.HistoricalSearchPage(driver);
+                historicalSearchPage.NavigateTo();
+                WebPageDelay.Pause();
                 // act
 
                 // assert
-                Assert.AreEqual(historicalTitle, driver.Title);
-                Assert.AreEqual(historicalUrl, driver.Url);
             }
         }
         [TestMethod]
