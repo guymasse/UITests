@@ -10,7 +10,7 @@ namespace UITests.PageObjectModels
     class AdvanceSearchPage
     {
         private readonly IWebDriver Driver;
-        private const string PageUrl = "http://lkwdvsvrecapp1:7061/cdweb/search/DOCSEARCH215S4";
+        private const string PageUrl = "http://dbkpvrecapp01:8100/cdweb/search/DOCSEARCH215S4";
         public const string PageTitle = "Advanced Search - Web/Intranet";
 
 

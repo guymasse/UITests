@@ -14,8 +14,8 @@ namespace UITests
 
     public class FutureCodeTests
     {
-        public const string deathCertificateUrl = "http://lkwdvsvrecapp1:7061/cdweb/wizard/COPYREQUEST201S2";
-        public const string publicMarriageCertificateUrl = "http://lkwdvsvrecapp1:7061/cdweb/wizard/WIZARD201S1";
+        public const string deathCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S2";
+        public const string publicMarriageCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/WIZARD201S1";
 
         [TestMethod]
         public void RadioButtonTest()

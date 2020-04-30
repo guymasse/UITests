@@ -12,15 +12,15 @@ namespace UITests
     public class SmokeTestEachLink
     {
 
-        public const string historicalUrl = "http://lkwdvsvrecapp1:7061/cdweb/historicalIndex/HISTORICAL_INDEX987S1";
+        public const string historicalUrl = "http://dbkpvrecapp01:8100/cdweb/historicalIndex/HISTORICAL_INDEX987S1";
         public const string historicalTitle = "Self-Service: Historical Index";
-        public const string vitalRecordsUrl = "http://lkwdvsvrecapp1:7061/cdweb/action/ACTIONGROUP201S1";
+        public const string vitalRecordsUrl = "http://dbkpvrecapp01:8100/cdweb/action/ACTIONGROUP201S1";
         public const string vitalRecordTitle = "Vital Records Certified Copies";
-        public const string birthCertificateUrl = "http://lkwdvsvrecapp1:7061/cdweb/wizard/COPYREQUEST201S1";
+        public const string birthCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S1";
         public const string birthCertificateTitle = "Birth Certificate Authorized Copies";
-        public const string deathCertificateUrl = "http://lkwdvsvrecapp1:7061/cdweb/wizard/COPYREQUEST201S2";
+        public const string deathCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S2";
         public const string deathCertificateTitle = "Death Certificate Authorized Copies";
-        public const string publicMarriageCertificateUrl = "http://lkwdvsvrecapp1:7061/cdweb/wizard/WIZARD201S1";
+        public const string publicMarriageCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/WIZARD201S1";
         public const string publicMarriageCertificateTitle = "Public Marriage License Requirements";
 
         [TestMethod]
