@@ -64,7 +64,7 @@ namespace UITests
                 IWebElement PageText = driver.FindElement(By.XPath("//h1[contains(.,'Birth Certificate Authorized Copies')]"));
                 // assert
                 Assert.AreEqual(birthCertificateTitle, PageText.Text);
-                Assert.AreEqual(birthCertificateUrl, driver.Url.Substring(0,56));
+                Assert.AreEqual(birthCertificateUrl, driver.Url.Substring(0,55));
             }
         }
         [TestMethod]
@@ -80,7 +80,7 @@ namespace UITests
 
                 // assert
                 Assert.AreEqual(deathCertificateTitle, PageText.Text);
-                Assert.AreEqual(deathCertificateUrl, driver.Url.Substring(0, 56));
+                Assert.AreEqual(deathCertificateUrl, driver.Url.Substring(0, 55));
             }
         }
         [TestMethod]
@@ -96,7 +96,7 @@ namespace UITests
 
                 // assert
                 Assert.AreEqual(publicMarriageCertificateTitle, PageText.Text);
-                Assert.AreEqual(publicMarriageCertificateUrl, driver.Url.Substring(0, 51));
+                Assert.AreEqual(publicMarriageCertificateUrl, driver.Url.Substring(0, 50));
             }
         }
         [TestMethod]
