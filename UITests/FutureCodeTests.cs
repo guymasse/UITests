@@ -117,17 +117,18 @@ namespace UITests
                 // arrange
                 var homePage = new PageObjectModels.HomePage(driver);
                 homePage.NavigateTo();
-                WebPageDelay.Pause();
+
 
                 // act
 
                 homePage.LoginButton.Click();
+                WebPageDelay.Pause();
                 //WebPageDelay.Pause();
-                //IAlert Popup = driver.SwitchTo().Alert();
+                //driver.SwitchTo().ParentFrame();
                 //WebPageDelay.Pause();
-                //IWebElement Name = driver.FindElement(By.Id("//input[@autocomplete='off'][contains(@id,'UserId')]"));
-                //Name.SendKeys("Guy");
-
+                IWebElement Name = driver.FindElement(By.Id("field_UserId"));
+                Name.SendKeys("Guy");
+                WebPageDelay.Pause();
 
                 // assert
             }
