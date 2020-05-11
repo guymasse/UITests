@@ -12,8 +12,6 @@ namespace UITests
     public class SmokeTestEachLink
     {
 
-        public const string vitalRecordsUrl = "http://dbkpvrecapp01:8100/cdweb/action/ACTIONGROUP201S1";
-        public const string vitalRecordTitle = "Vital Records Certified Copies";
         public const string birthCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S1";
         public const string birthCertificateTitle = "Birth Certificate Authorized Copies";
         public const string deathCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S2";
@@ -107,13 +105,12 @@ namespace UITests
             using (IWebDriver driver = new ChromeDriver())
             {
                 // arrange
-                driver.Navigate().GoToUrl(birthCertificateUrl);
+                var birthCertificatePage = new PageObjectModels.BirthCertificatePage(driver);
+                birthCertificatePage.NavigateTo();
 
                 // act
-                IWebElement PageText = driver.FindElement(By.XPath("//h1[contains(.,'Birth Certificate Authorized Copies')]"));
+
                 // assert
-                Assert.AreEqual(birthCertificateTitle, PageText.Text);
-                Assert.AreEqual(birthCertificateUrl, driver.Url.Substring(0,55));
             }
         }
         [TestMethod]
