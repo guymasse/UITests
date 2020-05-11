@@ -1,8 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
 using UITests.PageObjectModels;
 
 namespace UITests
@@ -12,10 +10,6 @@ namespace UITests
     public class SmokeTestEachLink
     {
 
-        public const string birthCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S1";
-        public const string birthCertificateTitle = "Birth Certificate Authorized Copies";
-        public const string deathCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S2";
-        public const string deathCertificateTitle = "Death Certificate Authorized Copies";
         public const string publicMarriageCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/WIZARD201S1";
         public const string publicMarriageCertificateTitle = "Public Marriage License Requirements";
 
@@ -119,14 +113,12 @@ namespace UITests
             using (IWebDriver driver = new ChromeDriver())
             {
                 // arrange
-                driver.Navigate().GoToUrl(deathCertificateUrl);
+                var deathCertificatePage = new PageObjectModels.DeathCertificatePage(driver);
+                deathCertificatePage.NavigateTo();
 
                 // act
-                IWebElement PageText = driver.FindElement(By.XPath("//h1[contains(.,'Death Certificate Authorized Copies')]"));
 
                 // assert
-                Assert.AreEqual(deathCertificateTitle, PageText.Text);
-                Assert.AreEqual(deathCertificateUrl, driver.Url.Substring(0, 55));
             }
         }
         [TestMethod]

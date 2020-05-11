@@ -95,6 +95,7 @@
     <Compile Include="ChromeDriverFixure.cs" />
     <Compile Include="PageObjectModels\AdvanceSearchPage.cs" />
     <Compile Include="PageObjectModels\BirthCertificatePage.cs" />
+    <Compile Include="PageObjectModels\DeathCertificatePage.cs" />
     <Compile Include="PageObjectModels\HistoricalSearchPage.cs" />
     <Compile Include="PageObjectModels\HomePage.cs" />
     <Compile Include="PageObjectModels\VitalRecordsPage.cs" />
