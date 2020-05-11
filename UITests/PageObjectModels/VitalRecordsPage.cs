@@ -7,26 +7,26 @@ using System.Threading.Tasks;
 
 namespace UITests.PageObjectModels
 {
-    class HistoricalSearchPage
+    class VitalRecordsPage
     {
         private readonly IWebDriver Driver;
-        public const string historicalUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/historicalIndex/HISTORICAL_INDEX987S1";
-        public const string historicalTitle = "Self-Service: Historical Index";
-
-        public HistoricalSearchPage(IWebDriver driver)
+        private const string vitalRecordsUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/action/ACTIONGROUP201S1";
+        public const string vitalRecordsTitle = "Vital Records Certified Copies";
+        
+        public VitalRecordsPage(IWebDriver driver)
         {
             Driver = driver;
         }
+        public IWebElement PageText => Driver.FindElement(By.XPath("//h1[contains(.,'Vital Records Certified Copies')]"));
 
         public void NavigateTo()
         {
-            Driver.Navigate().GoToUrl(historicalUrl);
+            Driver.Navigate().GoToUrl(vitalRecordsUrl);
             EnsurePageLoaded();
         }
-
         public void EnsurePageLoaded()
         {
-            bool pageHasLoaded = (Driver.Url == historicalUrl) && (Driver.Title == historicalTitle);
+            bool pageHasLoaded = (Driver.Url == vitalRecordsUrl) && (PageText.Text == vitalRecordsTitle);
 
             if (!pageHasLoaded)
             {
@@ -35,4 +35,5 @@ namespace UITests.PageObjectModels
         }
 
     }
+
 }

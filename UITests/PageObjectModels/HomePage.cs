@@ -6,7 +6,7 @@ namespace UITests.PageObjectModels
     class HomePage
     {
         private readonly IWebDriver Driver;
-        private const string PageUrl = "http://dbkpvrecapp01:8100/cdweb/";
+        private const string PageUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/";
         public const string PageTitle = "Self-Service";
 
         public HomePage(IWebDriver driver)

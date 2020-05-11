@@ -12,8 +12,6 @@ namespace UITests
     public class SmokeTestEachLink
     {
 
-        public const string historicalUrl = "http://dbkpvrecapp01:8100/cdweb/historicalIndex/HISTORICAL_INDEX987S1";
-        public const string historicalTitle = "Self-Service: Historical Index";
         public const string vitalRecordsUrl = "http://dbkpvrecapp01:8100/cdweb/action/ACTIONGROUP201S1";
         public const string vitalRecordTitle = "Vital Records Certified Copies";
         public const string birthCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S1";
@@ -24,6 +22,59 @@ namespace UITests
         public const string publicMarriageCertificateTitle = "Public Marriage License Requirements";
 
         [TestMethod]
+        public void OpenHomePage()
+        {
+            using (IWebDriver driver = new ChromeDriver())
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+
+                // assert
+            }
+        }
+
+        [TestMethod]
+        public void ReloadingHomePageOnBack()
+        {
+            using (IWebDriver driver = new ChromeDriver())
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+                var advanceSearchPage = new AdvanceSearchPage(driver);
+                advanceSearchPage.NavigateTo();
+                driver.Navigate().Back();
+                homePage.EnsurePageLoaded();
+                // act
+
+                // assert
+            }
+        }
+
+        [TestMethod]
+        public void ReloadingHomePageOnForward()
+        {
+            using (IWebDriver driver = new ChromeDriver())
+            {
+                // arrange
+                var advanceSearchPage = new AdvanceSearchPage(driver);
+                advanceSearchPage.NavigateTo();
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+                driver.Navigate().Back();
+                driver.Navigate().Forward();
+                homePage.EnsurePageLoaded();
+                // act
+
+                // assert
+
+            }
+        }
+
+        [TestMethod]
         public void HistoricalSearchPage()
         {
             using (IWebDriver driver = new ChromeDriver())
@@ -31,7 +82,6 @@ namespace UITests
                 // arrange
                 var historicalSearchPage = new PageObjectModels.HistoricalSearchPage(driver);
                 historicalSearchPage.NavigateTo();
-                WebPageDelay.Pause();
                 // act
 
                 // assert
@@ -43,13 +93,12 @@ namespace UITests
             using (IWebDriver driver = new ChromeDriver())
             {
                 // arrange
-                driver.Navigate().GoToUrl(vitalRecordsUrl);
+                var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
+                vitalRecordsPage.NavigateTo();
 
                 // act
-                IWebElement PageText = driver.FindElement(By.XPath("//h1[contains(.,'Vital Records Certified Copies')]"));
+
                 // assert
-                Assert.AreEqual(vitalRecordTitle, PageText.Text);
-                Assert.AreEqual(vitalRecordsUrl, driver.Url);
             }
         }
         [TestMethod]
