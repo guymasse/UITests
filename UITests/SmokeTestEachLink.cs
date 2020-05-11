@@ -10,9 +10,6 @@ namespace UITests
     public class SmokeTestEachLink
     {
 
-        public const string publicMarriageCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/WIZARD201S1";
-        public const string publicMarriageCertificateTitle = "Public Marriage License Requirements";
-
         [TestMethod]
         public void OpenHomePage()
         {
@@ -127,14 +124,12 @@ namespace UITests
             using (IWebDriver driver = new ChromeDriver())
             {
                 // arrange
-                driver.Navigate().GoToUrl(publicMarriageCertificateUrl);
+                var publicMarriageCertificatePage = new PageObjectModels.PublicMarriageCertificatePage(driver);
+                publicMarriageCertificatePage.NavigateTo();
 
                 // act
-                IWebElement PageText = driver.FindElement(By.XPath("//h1[contains(.,'Public Marriage License Requirements')]"));
 
                 // assert
-                Assert.AreEqual(publicMarriageCertificateTitle, PageText.Text);
-                Assert.AreEqual(publicMarriageCertificateUrl, driver.Url.Substring(0, 50));
             }
         }
         [TestMethod]

@@ -98,6 +98,7 @@
     <Compile Include="PageObjectModels\DeathCertificatePage.cs" />
     <Compile Include="PageObjectModels\HistoricalSearchPage.cs" />
     <Compile Include="PageObjectModels\HomePage.cs" />
+    <Compile Include="PageObjectModels\PublicMarriageCertificatePage.cs" />
     <Compile Include="PageObjectModels\VitalRecordsPage.cs" />
     <Compile Include="SmokeTestEachLink.cs" />
     <Compile Include="FutureCodeTests.cs" />
