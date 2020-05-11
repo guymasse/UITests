@@ -14,7 +14,6 @@ namespace UITests
 
     public class FutureCodeTests
     {
-        public const string deathCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S2";
         public const string publicMarriageCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/WIZARD201S1";
 
         [TestMethod]
@@ -23,7 +22,8 @@ namespace UITests
             using (IWebDriver driver = new ChromeDriver())
             {
                 // arrange
-                driver.Navigate().GoToUrl(deathCertificateUrl);
+                var deathCertificatePage = new PageObjectModels.DeathCertificatePage(driver);
+                deathCertificatePage.NavigateTo();
 
                 // act
                 // Wizard Navigation Test code for radio buttons and next button
@@ -46,8 +46,8 @@ namespace UITests
             using (IWebDriver driver = new ChromeDriver())
             {
                 // arrange
-                driver.Navigate().GoToUrl(publicMarriageCertificateUrl);
-
+                var publicMarriageApplicationPage = new PageObjectModels.PublicMarriageApplicationPage(driver);
+                publicMarriageApplicationPage.NavigateTo();
                 // act
 
                 // Wizard Navigation Test code for radio buttons and next button and select dropdown

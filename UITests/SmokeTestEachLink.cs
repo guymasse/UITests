@@ -133,6 +133,21 @@ namespace UITests
             }
         }
         [TestMethod]
+        public void PublicMarriargeApplicationPage()
+        {
+            using (IWebDriver driver = new ChromeDriver())
+            {
+                // arrange
+                var publicMarriageApplicationPage = new PageObjectModels.PublicMarriageApplicationPage(driver);
+                publicMarriageApplicationPage.NavigateTo();
+
+                // act
+
+                // assert
+            }
+        }
+
+        [TestMethod]
         public void AdvanceSearchPage()
         {
             using (IWebDriver driver = new ChromeDriver())
