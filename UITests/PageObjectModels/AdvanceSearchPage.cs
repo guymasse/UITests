@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +20,21 @@ namespace UITests.PageObjectModels
         {
             Driver = driver;
         }
-       
+
+        // Common Wait code
+        WebDriverWait Wait => new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+
+        //Get page elements
         private IWebElement PageText => Driver.FindElement(By.XPath("//li[@data-role='list-divider'][contains(.,'Advanced Search - Web/Intranet')]"));
 
+        // Documnet Number field
         public IWebElement DocumentNumber => Driver.FindElement(By.Id("field_DocumentNumberID"));
 
-        public IWebElement AdvanceSearchCheckBox => Driver.FindElement(By.XPath("//label[@for='field_UseAdvancedSearch'][contains(.,'Use Advanced Name Searching (What is this?)')]"));
-
-
+        // Advance Search Checkbox
+        public IWebElement AdvanceSearchCheckBox =>
+            Wait.Until(e => e.FindElement(By.XPath("//label[@for='field_UseAdvancedSearch'][contains(.,'Use Advanced Name Searching (What is this?)')]")));
+     
+ 
         public void NavigateTo()
         {
             Driver.Navigate().GoToUrl(PageUrl);

@@ -26,10 +26,10 @@ namespace UITests
 
                 // act
                 // Wizard Navigation Test code for radio buttons and next button
-                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+                WebDriverWait Wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
 
-                IWebElement selectedRadio = 
-                    wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//label[@class='ui-btn ui-corner-all ui-btn-a ui-btn-icon-left ui-radio-off ui-first-child']")));
+                IWebElement selectedRadio =
+                    Wait.Until(e => e.FindElement(By.XPath("//label[@class='ui-btn ui-corner-all ui-btn-a ui-btn-icon-left ui-radio-off ui-first-child']")));
                 selectedRadio.Click();
                 WebPageDelay.Pause();
                 IWebElement nextButton = driver.FindElement(By.XPath("//a[@class='ss-right ui-link ui-btn ui-btn-a ui-icon-arrow-r ui-btn-icon-right ui-btn-inline ui-shadow ui-corner-all'][contains(.,'Next')]"));
@@ -99,12 +99,13 @@ namespace UITests
                 // arrange
                 var advanceSearchPage = new AdvanceSearchPage(driver);
                 advanceSearchPage.NavigateTo();
-                WebPageDelay.Pause();
                 // act
 
                 // Code to check a box
+                IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+                js.ExecuteScript("arguments[0].scrollIntoView();", advanceSearchPage.AdvanceSearchCheckBox);             
                 advanceSearchPage.AdvanceSearchCheckBox.Click();
-                WebPageDelay.Pause();
+
 
                 // assert
             }
