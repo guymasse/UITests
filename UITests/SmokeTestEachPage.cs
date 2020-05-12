@@ -7,7 +7,7 @@ namespace UITests
 {
     [TestClass]
 
-    public class SmokeTestEachLink
+    public class SmokeTestEachPage
     {
 
         [TestMethod]

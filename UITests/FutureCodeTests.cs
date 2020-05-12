@@ -73,25 +73,6 @@ namespace UITests
             }
         }
         [TestMethod]
-        public void DocumentQueryTest()
-        {
-            using (IWebDriver driver = new ChromeDriver())
-            {
-                // arrange
-                var advanceSearchPage = new AdvanceSearchPage(driver);
-                advanceSearchPage.NavigateTo();
-
-                // act
-
-                // Code to submict a document number query
-                advanceSearchPage.EnterDocumentNumber("2017000012");
-                advanceSearchPage.PreformSearch();
-                WebPageDelay.Pause(15000);
-
-                // assert
-            }
-        }
-        [TestMethod]
         public void CheckBoxTest()
         {
             using (IWebDriver driver = new ChromeDriver())
@@ -106,30 +87,6 @@ namespace UITests
                 js.ExecuteScript("arguments[0].scrollIntoView();", advanceSearchPage.AdvanceSearchCheckBox);             
                 advanceSearchPage.AdvanceSearchCheckBox.Click();
 
-
-                // assert
-            }
-        }
-        [TestMethod]
-        public void LoginTest()
-        {
-            using (IWebDriver driver = new ChromeDriver())
-            {
-                // arrange
-                var homePage = new PageObjectModels.HomePage(driver);
-                homePage.NavigateTo();
-
-
-                // act
-
-                homePage.LoginButton.Click();
-                WebPageDelay.Pause();
-                //WebPageDelay.Pause();
-                //driver.SwitchTo().ParentFrame();
-                //WebPageDelay.Pause();
-                IWebElement Name = driver.FindElement(By.Id("field_UserId"));
-                Name.SendKeys("Guy");
-                WebPageDelay.Pause();
 
                 // assert
             }

@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 
 namespace UITests.PageObjectModels
@@ -14,7 +15,24 @@ namespace UITests.PageObjectModels
             Driver = driver;
         }
 
-        public IWebElement LoginButton => Driver.FindElement(By.XPath("//span[@class='ss-header-labels'][contains(.,'Log in')]"));
+        // Common Wait code
+        WebDriverWait Wait => new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+
+        // Login Button
+        public IWebElement LoginButton => Wait.Until(e => e.FindElement(By.XPath("//span[@class='ss-header-labels'][contains(.,'Log in')]")));
+
+        // Login User Name
+        public IWebElement LoginName => Wait.Until(e => e.FindElement(By.Id("field_UserId")));
+
+        // Login in Password
+        public IWebElement LoginPassword => Wait.Until(e => e.FindElement(By.Id("field_Password")));
+
+        // Login Submit Button
+        public IWebElement LoginSubmitButton => Wait.Until(e => e.FindElement(By.Id("loginSubmit")));
+
+        //Login  Message
+        public IWebElement LoginMessage => Wait.Until(e => e.FindElement(By.Id("ss-user-welcome")));
+
         public void NavigateTo()
         {
             Driver.Navigate().GoToUrl(PageUrl);
@@ -29,6 +47,15 @@ namespace UITests.PageObjectModels
             {
                 throw new Exception($"Failed to load page. Page Url = {Driver.Url} Page Source: \r\n  {Driver.PageSource}");
             }
+        }
+
+        // Login in
+        public void LogIn()
+        {
+            LoginButton.Click();
+            LoginName.SendKeys("guy");
+            LoginPassword.SendKeys("guy12345");
+            LoginSubmitButton.Click();
         }
     }
 }

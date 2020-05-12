@@ -1,10 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace UITests.PageObjectModels
 {
@@ -25,10 +22,12 @@ namespace UITests.PageObjectModels
         WebDriverWait Wait => new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
 
         //Get page elements
-        private IWebElement PageText => Driver.FindElement(By.XPath("//li[@data-role='list-divider'][contains(.,'Advanced Search - Web/Intranet')]"));
+        private IWebElement PageText => 
+            Wait.Until(e => e.FindElement(By.XPath("//li[@data-role='list-divider'][contains(.,'Advanced Search - Web/Intranet')]")));
 
         // Documnet Number field
-        public IWebElement DocumentNumber => Driver.FindElement(By.Id("field_DocumentNumberID"));
+        public IWebElement DocumentNumber => 
+            Wait.Until(e => e.FindElement(By.Id("field_DocumentNumberID")));
 
         // Advance Search Checkbox
         public IWebElement AdvanceSearchCheckBox =>
