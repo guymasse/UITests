@@ -156,10 +156,24 @@ namespace UITests
                 var advanceSearchPage = new AdvanceSearchPage(driver);
                 advanceSearchPage.NavigateTo();
 
-                 // act
+                // act
 
                 // assert
-             }
+            }
+        }
+        [TestMethod]
+        public void DocumentNumberSearchPage()
+        {
+            using (IWebDriver driver = new ChromeDriver())
+            {
+                // arrange
+                var documentNumberSearchPage = new DocumentNumberSearchPage(driver);
+                documentNumberSearchPage.NavigateTo();
+
+                // act
+
+                // assert
+            }
         }
 
     }

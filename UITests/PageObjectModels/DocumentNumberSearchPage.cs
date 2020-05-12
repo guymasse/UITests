@@ -5,15 +5,13 @@ using System;
 
 namespace UITests.PageObjectModels
 {
-    class AdvanceSearchPage
+    class DocumentNumberSearchPage
     {
         private readonly IWebDriver Driver;
-        private const string PageUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/search/DOCSEARCH215S4";
-        public const string PageTitle = "Advanced Search - Web/Intranet";
+        private const string PageUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/search/DOCSEARCH215S2";
+        public const string PageTitle = "Document Number Search - Web/Intranet";
 
-
-
-        public AdvanceSearchPage(IWebDriver driver)
+        public DocumentNumberSearchPage(IWebDriver driver)
         {
             Driver = driver;
         }
@@ -22,16 +20,13 @@ namespace UITests.PageObjectModels
         WebDriverWait Wait => new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
 
         //Get page elements
-        private IWebElement PageText => 
-            Wait.Until(e => e.FindElement(By.XPath("//li[@data-role='list-divider'][contains(.,'Advanced Search - Web/Intranet')]")));
+        private IWebElement PageText =>
+            Wait.Until(e => e.FindElement(By.XPath("//li[@data-role='list-divider'][contains(.,'Document Number Search - Web/Intranet')]")));
 
         // Documnet Number field
-        public IWebElement DocumentNumber => 
+        public IWebElement DocumentNumber =>
             Wait.Until(e => e.FindElement(By.Id("field_DocumentNumberID")));
 
-        // Advance Search Checkbox
-        public IWebElement AdvanceSearchCheckBox =>
-            Wait.Until(e => e.FindElement(By.XPath("//label[@for='field_UseAdvancedSearch'][contains(.,'Use Advanced Name Searching (What is this?)')]")));
         //Document Search Button
         public IWebElement DocumentSearchButtonr =>
             Wait.Until(e => e.FindElement(By.Id("searchButton")));
