@@ -5,6 +5,7 @@ using ApprovalTests.Reporters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using UITests.PageObjectModels;
 
@@ -83,8 +84,11 @@ namespace UITests
                 // act
 
                 // Code to check a box
+                //Actions action = new Actions(driver);
+                //action.MoveToElement(advanceSearchPage.AdvanceSearchCheckBox);
+                //WebPageDelay.Pause(1000);
                 IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-                js.ExecuteScript("arguments[0].scrollIntoView();", advanceSearchPage.AdvanceSearchCheckBox);             
+                js.ExecuteScript("arguments[0].scrollIntoView();", advanceSearchPage.AdvanceSearchCheckBox);
                 advanceSearchPage.AdvanceSearchCheckBox.Click();
 
 
