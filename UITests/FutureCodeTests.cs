@@ -8,6 +8,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using UITests.PageObjectModels;
+using UITests.TestSetup;
 
 namespace UITests
 {
@@ -19,7 +20,7 @@ namespace UITests
         [TestMethod]
         public void RadioButtonTest()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var deathCertificatePage = new PageObjectModels.DeathCertificatePage(driver);
@@ -43,7 +44,7 @@ namespace UITests
         [TestMethod]
         public void DropDownTest()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var publicMarriageApplicationPage = new PageObjectModels.PublicMarriageApplicationPage(driver);
@@ -76,7 +77,7 @@ namespace UITests
         [TestMethod]
         public void CheckBoxTest()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var advanceSearchPage = new AdvanceSearchPage(driver);
@@ -99,7 +100,7 @@ namespace UITests
         [UseReporter(typeof(BeyondCompareReporter))]
         public void ScreenShotTest()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var homePage = new HomePage(driver);

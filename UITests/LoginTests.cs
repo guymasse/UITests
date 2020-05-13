@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using UITests.TestSetup;
 
 namespace UITests
 {
@@ -11,7 +12,7 @@ namespace UITests
         [TestMethod]
         public void LogIn()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var homePage = new PageObjectModels.HomePage(driver);

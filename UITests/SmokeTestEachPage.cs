@@ -2,18 +2,17 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using UITests.PageObjectModels;
+using UITests.TestSetup;
 
 namespace UITests
 {
     [TestClass]
-
     public class SmokeTestEachPage
     {
-        //private readonly IWebDriver driver = new ChromeDriver();
         [TestMethod]
         public void OpenHomePage()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var homePage = new HomePage(driver);
@@ -29,7 +28,7 @@ namespace UITests
         [TestMethod]
         public void ReloadingHomePageOnBack()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var homePage = new HomePage(driver);
@@ -47,7 +46,7 @@ namespace UITests
         [TestMethod]
         public void ReloadingHomePageOnForward()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var advanceSearchPage = new AdvanceSearchPage(driver);
@@ -67,7 +66,7 @@ namespace UITests
         [TestMethod]
         public void HistoricalSearchPage()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var historicalSearchPage = new PageObjectModels.HistoricalSearchPage(driver);
@@ -80,7 +79,7 @@ namespace UITests
         [TestMethod]
         public void VitlaRecordsPage()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
@@ -94,7 +93,7 @@ namespace UITests
         [TestMethod]
         public void BirthCertificatePage()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var birthCertificatePage = new PageObjectModels.BirthCertificatePage(driver);
@@ -108,7 +107,7 @@ namespace UITests
         [TestMethod]
         public void DeathCertificatePage()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var deathCertificatePage = new PageObjectModels.DeathCertificatePage(driver);
@@ -122,7 +121,7 @@ namespace UITests
         [TestMethod]
         public void PublicMarriargeCertificatePage()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var publicMarriageCertificatePage = new PageObjectModels.PublicMarriageCertificatePage(driver);
@@ -136,7 +135,7 @@ namespace UITests
         [TestMethod]
         public void PublicMarriargeApplicationPage()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var publicMarriageApplicationPage = new PageObjectModels.PublicMarriageApplicationPage(driver);
@@ -151,7 +150,7 @@ namespace UITests
         [TestMethod]
         public void AdvanceSearchPage()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var advanceSearchPage = new AdvanceSearchPage(driver);
@@ -165,7 +164,7 @@ namespace UITests
         [TestMethod]
         public void DocumentNumberSearchPage()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var documentNumberSearchPage = new DocumentNumberSearchPage(driver);
@@ -179,7 +178,7 @@ namespace UITests
         [TestMethod]
         public void FBNNewFilingPage()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var fbnNewFilingPage = new FBNNewFilingPage(driver);
@@ -193,7 +192,7 @@ namespace UITests
         [TestMethod]
         public void FBNRenewalPage()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var fbnRenewalPage = new FBNRenewalPage(driver);

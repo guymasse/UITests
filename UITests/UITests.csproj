@@ -108,6 +108,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LoginTests.cs" />
     <Compile Include="DocumnetSearchTests.cs" />
+    <Compile Include="TestSetup\SelectDriver.cs" />
     <Compile Include="WebPageDelay.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using UITests.PageObjectModels;
+using UITests.TestSetup;
 
 namespace UITests
 {
@@ -11,7 +12,7 @@ namespace UITests
         [TestMethod]
         public void DocumentNumberTest()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
                 var documentNumberSearchPage = new DocumentNumberSearchPage(driver);
