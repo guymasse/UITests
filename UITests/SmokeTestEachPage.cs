@@ -9,7 +9,7 @@ namespace UITests
 
     public class SmokeTestEachPage
     {
-
+        //private readonly IWebDriver driver = new ChromeDriver();
         [TestMethod]
         public void OpenHomePage()
         {
@@ -22,6 +22,7 @@ namespace UITests
                 // act
 
                 // assert
+                //driver.Close();
             }
         }
 
@@ -169,6 +170,34 @@ namespace UITests
                 // arrange
                 var documentNumberSearchPage = new DocumentNumberSearchPage(driver);
                 documentNumberSearchPage.NavigateTo();
+
+                // act
+
+                // assert
+            }
+        }
+        [TestMethod]
+        public void FBNNewFilingPage()
+        {
+            using (IWebDriver driver = new ChromeDriver())
+            {
+                // arrange
+                var fbnNewFilingPage = new FBNNewFilingPage(driver);
+                fbnNewFilingPage.NavigateTo();
+
+                // act
+
+                // assert
+            }
+        }
+        [TestMethod]
+        public void FBNRenewalPage()
+        {
+            using (IWebDriver driver = new ChromeDriver())
+            {
+                // arrange
+                var fbnRenewalPage = new FBNRenewalPage(driver);
+                fbnRenewalPage.NavigateTo();
 
                 // act
 
