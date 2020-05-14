@@ -1,5 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
 using System;
 
 namespace UITests.TestSetup
@@ -11,6 +13,8 @@ namespace UITests.TestSetup
         public SelectDriver()
         {
             Driver = new ChromeDriver();
+            //Driver = new FirefoxDriver();
+            //Driver = new EdgeDriver();
         }
 
         public void Dispose()
