@@ -27,6 +27,27 @@ namespace UITests
                 // assert
                 Assert.AreEqual("Welcome Guy Masse", homePage.LoginMessage.Text);
             }
+        }
+        [TestMethod]
+        public void LogOut()
+        {
+            using (IWebDriver driver = new SelectDriver().Driver)
+            {
+                // arrange
+                var homePage = new PageObjectModels.HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+
+                homePage.LogIn();
+
+                WebPageDelay.Pause(10000);
+
+                homePage.Logout();
+                WebPageDelay.Pause(10000);
+                // assert
+                Assert.AreEqual("Please log in", homePage.LoginMessage.Text);
+            }
 
         }
     }

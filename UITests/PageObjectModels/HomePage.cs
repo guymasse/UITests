@@ -33,6 +33,13 @@ namespace UITests.PageObjectModels
         //Login  Message
         public IWebElement LoginMessage => Wait.Until(e => e.FindElement(By.Id("ss-user-welcome")));
 
+        // Account Button
+        public IWebElement AccountButton => Wait.Until(e => e.FindElement(By.XPath("//span[@class='ss-header-labels'][contains(.,'Account')]")));
+
+        // Logout Button
+        public IWebElement LogoutButton => Wait.Until(e => e.FindElement(By.XPath("//button[@data-icon='check'][contains(.,'Log Out')]")));
+
+
         public void NavigateTo()
         {
             Driver.Navigate().GoToUrl(PageUrl);
@@ -56,6 +63,13 @@ namespace UITests.PageObjectModels
             LoginName.SendKeys("guy");
             LoginPassword.SendKeys("guy12345");
             LoginSubmitButton.Click();
+        }
+
+        // Log out
+        public void Logout()
+        {
+            AccountButton.Click();
+            LogoutButton.Click();
         }
     }
 }
