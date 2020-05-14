@@ -19,26 +19,48 @@ namespace UITests.PageObjectModels
         WebDriverWait Wait => new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
 
         // Login Button
-        public IWebElement LoginButton => Wait.Until(e => e.FindElement(By.XPath("//span[@class='ss-header-labels'][contains(.,'Log in')]")));
+        public IWebElement LoginButton => 
+            Wait.Until(e => e.FindElement(By.XPath("//span[@class='ss-header-labels'][contains(.,'Log in')]")));
 
         // Login User Name
-        public IWebElement LoginName => Wait.Until(e => e.FindElement(By.Id("field_UserId")));
+        public IWebElement LoginName => 
+            Wait.Until(e => e.FindElement(By.Id("field_UserId")));
 
         // Login in Password
-        public IWebElement LoginPassword => Wait.Until(e => e.FindElement(By.Id("field_Password")));
+        public IWebElement LoginPassword => 
+            Wait.Until(e => e.FindElement(By.Id("field_Password")));
 
         // Login Submit Button
-        public IWebElement LoginSubmitButton => Wait.Until(e => e.FindElement(By.Id("loginSubmit")));
+        public IWebElement LoginSubmitButton => 
+            Wait.Until(e => e.FindElement(By.Id("loginSubmit")));
 
         //Login  Message
-        public IWebElement LoginMessage => Wait.Until(e => e.FindElement(By.Id("ss-user-welcome")));
+        public IWebElement LoginMessage => 
+            Wait.Until(e => e.FindElement(By.Id("ss-user-welcome")));
 
         // Account Button
-        public IWebElement AccountButton => Wait.Until(e => e.FindElement(By.XPath("//span[@class='ss-header-labels'][contains(.,'Account')]")));
+        public IWebElement AccountButton => 
+            Wait.Until(e => e.FindElement(By.XPath("//span[@class='ss-header-labels'][contains(.,'Account')]")));
 
         // Logout Button
-        public IWebElement LogoutButton => Wait.Until(e => e.FindElement(By.XPath("//button[@data-icon='check'][contains(.,'Log Out')]")));
+        public IWebElement LogoutButton => 
+            Wait.Until(e => e.FindElement(By.XPath("//button[@data-icon='check'][contains(.,'Log Out')]")));
 
+        // User Profile Button
+        public IWebElement UserProfileButton => 
+            Wait.Until(e => e.FindElement(By.XPath("//button[@class=' ui-btn ui-shadow ui-corner-all'][contains(.,'User Profile')]")));
+
+        // User Profile Text
+        public IWebElement UserProfileText => 
+            Wait.Until(e => e.FindElement(By.XPath("//h4[@class='ss-group-title'][contains(.,'Profile Information')]")));
+
+        // User Profile Save Button
+        public IWebElement UserProfileSaveButton => 
+            Wait.Until(e => e.FindElement(By.XPath("//a[@class='ss-right ui-link ui-btn ui-btn-a ui-icon-check ui-btn-icon-left ui-btn-inline ui-shadow ui-corner-all'][contains(.,'Save')]")));
+
+        // User Profile Cancel Button
+        public IWebElement UserProfileCancelButton => 
+            Wait.Until(e => e.FindElement(By.XPath("//a[@class='ss-left ui-link ui-btn ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline ui-shadow ui-corner-all'][contains(.,'Cancel')]")));
 
         public void NavigateTo()
         {
@@ -70,6 +92,14 @@ namespace UITests.PageObjectModels
         {
             AccountButton.Click();
             LogoutButton.Click();
+        }
+
+        //Account Info
+        public void UserProfile()
+        {
+            AccountButton.Click();
+            UserProfileButton.Click();
+
         }
     }
 }
