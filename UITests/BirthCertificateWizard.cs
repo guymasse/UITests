@@ -29,10 +29,10 @@ namespace UITests
                 Assert.AreEqual("Birth Record Information", birthCertificatePage.Step2PageText.Text);
 
                 // Step 2 of wizard
-                birthCertificatePage.Step2FirstName.SendKeys("Guy");
-                birthCertificatePage.Step2LastName.SendKeys("Masse");
-                birthCertificatePage.Step2DateOfBirthe.SendKeys("12/23/1955");
-                birthCertificatePage.Step2CityOfBirthe.SendKeys("Windsor");
+                birthCertificatePage.Step2FirstName.SendKeys("MATEO");
+                birthCertificatePage.Step2LastName.SendKeys("VIQUEZ");
+                birthCertificatePage.Step2DateOfBirthe.SendKeys("10/16/2014");
+                birthCertificatePage.Step2CityOfBirthe.SendKeys("TEMECULA");
                 birthCertificatePage.NextButton.Click();
                 WebPageDelay.Pause();
 
