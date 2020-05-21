@@ -109,6 +109,7 @@
     <Compile Include="LoginTests.cs" />
     <Compile Include="DocumnetSearchTests.cs" />
     <Compile Include="TestSetup\SelectDriver.cs" />
+    <Compile Include="BirthCertificateWizard.cs" />
     <Compile Include="WebPageDelay.cs" />
   </ItemGroup>
   <ItemGroup>

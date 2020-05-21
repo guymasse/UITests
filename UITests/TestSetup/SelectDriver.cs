@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 using System;
 
 namespace UITests.TestSetup
@@ -16,6 +17,8 @@ namespace UITests.TestSetup
             //Driver = new FirefoxDriver();
             //Driver = new EdgeDriver();
         }
+
+        // Common Wait code
 
         public void Dispose()
         {
