@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Support.UI;
 using System;
 
@@ -16,6 +17,7 @@ namespace UITests.TestSetup
             Driver = new ChromeDriver();
             //Driver = new FirefoxDriver();
             //Driver = new EdgeDriver();
+            //Driver = new InternetExplorerDriver();
         }
 
         // Common Wait code
