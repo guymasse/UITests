@@ -105,7 +105,7 @@ namespace UITests
                 // arrange
                 var homePage = new HomePage(driver);
                 homePage.NavigateTo();
-                WebPageDelay.Pause(5000);
+                WebPageDelay.Pause(5500);
                 // act
 
                 // Code to check a box
