@@ -8,7 +8,8 @@ namespace UITests.PageObjectModels
     class FBNNewFilingPage
     {
         private readonly IWebDriver Driver;
-        private const string PageUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/wizard/WIZARD201S2";
+//        private const string PageUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/wizard/WIZARD201S2";
+        private const string PageUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/WIZARD201S2";
         public const string PageTitle = "New Filing Requirements";
 
         public FBNNewFilingPage(IWebDriver driver)

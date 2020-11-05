@@ -7,7 +7,8 @@ namespace UITests.PageObjectModels
     class DeathCertificatePage
     {
         private readonly IWebDriver Driver;
-        private const string deathCertificateUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/wizard/COPYREQUEST201S2";
+//        private const string deathCertificateUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/wizard/COPYREQUEST201S2";
+        private const string deathCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S2";
         public const string deathCertificateTitle = "Death Certificate Authorized Copies";
         public DeathCertificatePage(IWebDriver driver)
         {

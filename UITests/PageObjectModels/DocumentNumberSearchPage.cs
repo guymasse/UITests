@@ -8,7 +8,8 @@ namespace UITests.PageObjectModels
     class DocumentNumberSearchPage
     {
         private readonly IWebDriver Driver;
-        private const string PageUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/search/DOCSEARCH215S2";
+//        private const string PageUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/search/DOCSEARCH215S2";
+        private const string PageUrl = "http://dbkpvrecapp01:8100/cdweb/search/DOCSEARCH215S2";
         public const string PageTitle = "Document Number Search - Web/Intranet";
 
         public DocumentNumberSearchPage(IWebDriver driver)

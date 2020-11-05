@@ -7,7 +7,8 @@ namespace UITests.PageObjectModels
     class VitalRecordsPage
     {
         private readonly IWebDriver Driver;
-        private const string vitalRecordsUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/action/ACTIONGROUP201S1";
+//        private const string vitalRecordsUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/action/ACTIONGROUP201S1";
+        private const string vitalRecordsUrl = "http://dbkpvrecapp01:8100/cdweb/action/ACTIONGROUP201S1";
         public const string vitalRecordsTitle = "Vital Records Certified Copies";
         
         public VitalRecordsPage(IWebDriver driver)

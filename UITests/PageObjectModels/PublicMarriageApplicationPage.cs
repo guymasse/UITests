@@ -7,7 +7,8 @@ namespace UITests.PageObjectModels
     class PublicMarriageApplicationPage
     {
         private readonly IWebDriver Driver;
-        private const string publicMarriageApplicationUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/wizard/WIZARD201S1";
+//        private const string publicMarriageApplicationUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/wizard/WIZARD201S1";
+        private const string publicMarriageApplicationUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/WIZARD201S1";
         public const string publicMarriageApplicationTitle = "Public Marriage License Requirements";
 
         public PublicMarriageApplicationPage(IWebDriver driver)

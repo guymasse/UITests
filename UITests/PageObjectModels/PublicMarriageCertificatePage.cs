@@ -7,7 +7,8 @@ namespace UITests.PageObjectModels
     class PublicMarriageCertificatePage
     {
         private readonly IWebDriver Driver;
-        private const string publicMarriageCertificateUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/wizard/COPYREQUEST201S3";
+//        private const string publicMarriageCertificateUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/wizard/COPYREQUEST201S3";
+        private const string publicMarriageCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S3";
         public const string publicMarriageCertificateTitle = "Public Marriage Certificate Authorized Copies";
 
         public PublicMarriageCertificatePage(IWebDriver driver)

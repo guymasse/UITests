@@ -8,7 +8,8 @@ namespace UITests.PageObjectModels
     class FBNRenewalPage
     {
         private readonly IWebDriver Driver;
-        private const string PageUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/search/DOCSEARCH201S3";
+//        private const string PageUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/search/DOCSEARCH201S3";
+        private const string PageUrl = "http://dbkpvrecapp01:8100/cdweb/search/DOCSEARCH201S3";
         public const string PageTitle = "Fictitious Business Names Search - Renewal";
 
         public FBNRenewalPage(IWebDriver driver)
