@@ -33,7 +33,7 @@ namespace UITests.PageObjectModels
             Wait.Until(e => e.FindElement(By.Id("searchButton")));
 
         public IWebElement SearchResult =>
-            Wait.Until(e => e.FindElement(By.XPath("//div[@class='selfServiceSearchResultHeaderLeft'][contains(.,'Document Number Search - Web/Intranet  Document Number equals 2017000012')]")));
+            Wait.Until(e => e.FindElement(By.XPath("//div[@class='selfServiceSearchResultHeaderLeft'][contains(.,'Document Number Search - Web/Intranet  Document Number equals 2017000017')]")));
 
         public void NavigateTo()
         {

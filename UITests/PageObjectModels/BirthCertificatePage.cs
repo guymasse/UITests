@@ -125,11 +125,11 @@ namespace UITests.PageObjectModels
         }
         public void EnsurePageLoaded()
         {
-            bool pageHasLoaded = (Driver.Url.Substring(0, 66) == birthCertificateUrl) && (PageText.Text == birthCertificateTitle);
+            bool pageHasLoaded = (Driver.Url.Substring(0, 55) == birthCertificateUrl) && (PageText.Text == birthCertificateTitle);
 
             if (!pageHasLoaded)
             {
-                throw new Exception($"Failed to load page. Page Url = {Driver.Url.Substring(0, 66)} Page Source: \r\n  {Driver.PageSource}");
+                throw new Exception($"Failed to load page. Page Url = {Driver.Url.Substring(0, 55)} Page Source: \r\n  {Driver.PageSource}");
             }
         }
 

@@ -96,32 +96,32 @@ namespace UITests
                 // assert
             }
         }
-        [TestMethod]
-        [UseReporter(typeof(BeyondCompareReporter))]
-        public void ScreenShotTest()
-        {
-            using (IWebDriver driver = new SelectDriver().Driver)
-            {
-                // arrange
-                var homePage = new HomePage(driver);
-                homePage.NavigateTo();
-                WebPageDelay.Pause(5500);
-                // act
+        //[TestMethod]
+        //[UseReporter(typeof(BeyondCompareReporter))]
+        //public void ScreenShotTest()
+        //{
+        //    using (IWebDriver driver = new SelectDriver().Driver)
+        //    {
+        //        // arrange
+        //        var homePage = new HomePage(driver);
+        //        homePage.NavigateTo();
+        //        WebPageDelay.Pause(5500);
+        //        // act
 
-                // Code to check a box
-                ITakesScreenshot screenShotDriver = (ITakesScreenshot)driver;
+        //        // Code to check a box
+        //        ITakesScreenshot screenShotDriver = (ITakesScreenshot)driver;
 
-                Screenshot screenshot = screenShotDriver.GetScreenshot();
+        //        Screenshot screenshot = screenShotDriver.GetScreenshot();
 
-                screenshot.SaveAsFile("Homepage.jpeg", ScreenshotImageFormat.Jpeg);
+        //        screenshot.SaveAsFile("Homepage.jpeg", ScreenshotImageFormat.Jpeg);
  
-                FileInfo file = new FileInfo("Homepage.jpeg");
+        //        FileInfo file = new FileInfo("Homepage.jpeg");
 
-                Approvals.Verify(file);
+        //        Approvals.Verify(file);
 
 
-                // assert
-            }
+        //        // assert
+        //    }
 
             // Other code
             // Page Time out
@@ -130,6 +130,6 @@ namespace UITests
             //Returning a page object
             // AdvanceSearchPage advanceSearchPage = Otherpageobject.functionthatreturnsapageobject
 
-        }
+        //}
     }
 }
