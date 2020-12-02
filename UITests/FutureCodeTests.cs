@@ -114,7 +114,7 @@ namespace UITests
         //        Screenshot screenshot = screenShotDriver.GetScreenshot();
 
         //        screenshot.SaveAsFile("Homepage.jpeg", ScreenshotImageFormat.Jpeg);
- 
+
         //        FileInfo file = new FileInfo("Homepage.jpeg");
 
         //        Approvals.Verify(file);
@@ -123,6 +123,26 @@ namespace UITests
         //        // assert
         //    }
 
+        [TestMethod]
+        [UseReporter(typeof(BeyondCompareReporter))]
+        public void HistoricalTest()
+        {
+            using (IWebDriver driver = new SelectDriver().Driver)
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+                 // act
+
+                // Go to Historical page
+                homePage.HistoricalIndexlink.Click();
+                WebPageDelay.Pause();
+                HistoricalSearchPage historicalSearchPage = new HistoricalSearchPage(driver);
+
+                // assert
+                historicalSearchPage.EnsurePageLoaded();
+            }
+
             // Other code
             // Page Time out
             // driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
@@ -130,6 +150,6 @@ namespace UITests
             //Returning a page object
             // AdvanceSearchPage advanceSearchPage = Otherpageobject.functionthatreturnsapageobject
 
-        //}
+        }
     }
 }

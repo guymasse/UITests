@@ -63,6 +63,10 @@ namespace UITests.PageObjectModels
         public IWebElement UserProfileCancelButton => 
             Wait.Until(e => e.FindElement(By.XPath("//a[@class='ss-left ui-link ui-btn ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline ui-shadow ui-corner-all'][contains(.,'Cancel')]")));
 
+        // Historical Index Link
+        public IWebElement HistoricalIndexlink =>
+            Wait.Until(e => e.FindElement(By.XPath("//h1[contains(.,'Historical Index Search')]")));
+
         public void NavigateTo()
         {
             Driver.Navigate().GoToUrl(PageUrl);
