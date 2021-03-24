@@ -14,10 +14,10 @@ namespace UITests.TestSetup
 
         public SelectDriver()
         {
-            Driver = new ChromeDriver();
+            //Driver = new ChromeDriver();
             //Driver = new FirefoxDriver();
-            //Driver = new EdgeDriver();
-            //Driver = new InternetExplorerDriver();
+            EdgeOptions options = new EdgeOptions();
+            Driver = new EdgeDriver("C:\\Automation\\Selenium\\edgedriver_win64", options);
         }
 
         // Common Wait code
