@@ -67,6 +67,14 @@ namespace UITests.PageObjectModels
         public IWebElement HistoricalIndexlink =>
             Wait.Until(e => e.FindElement(By.XPath("//h1[contains(.,'Historical Index Search')]")));
 
+        // Vital Records Link
+        public IWebElement VitalRecordslink =>
+            Wait.Until(e => e.FindElement(By.XPath("//div[@class='ss-action-internal'][contains(.,'Vital Records Certified Copies')]")));
+
+        // Marriage Application Link
+        public IWebElement MarriageApplicationlink =>
+            Wait.Until(e => e.FindElement(By.XPath("//h1[contains(.,'Marriage License Application')]")));
+
         public void NavigateTo()
         {
             Driver.Navigate().GoToUrl(PageUrl);

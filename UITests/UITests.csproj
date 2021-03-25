@@ -112,7 +112,10 @@
     <Compile Include="PageObjectModels\FBNRenewalPage.cs" />
     <Compile Include="PageObjectModels\HistoricalSearchPage.cs" />
     <Compile Include="PageObjectModels\HomePage.cs" />
+    <Compile Include="PageObjectModels\MarriageLicenseApplicationPage.cs" />
+    <Compile Include="PageObjectModels\ConfidentialMarriageApplicationPage.cs" />
     <Compile Include="PageObjectModels\PublicMarriageApplicationPage.cs" />
+    <Compile Include="PageObjectModels\ConfidentialMarriageCertificatePage.cs" />
     <Compile Include="PageObjectModels\PublicMarriageCertificatePage.cs" />
     <Compile Include="PageObjectModels\VitalRecordsPage.cs" />
     <Compile Include="SmokeTestEachPage.cs" />

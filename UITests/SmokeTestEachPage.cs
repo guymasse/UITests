@@ -21,7 +21,6 @@ namespace UITests
                 // act
 
                 // assert
-                //driver.Close();
             }
         }
 
@@ -69,11 +68,17 @@ namespace UITests
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
-                var historicalSearchPage = new PageObjectModels.HistoricalSearchPage(driver);
-                historicalSearchPage.NavigateTo();
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
                 // act
+                homePage.HistoricalIndexlink.Click();
+                WebPageDelay.Pause();
 
                 // assert
+                var historicalSearchPage = new PageObjectModels.HistoricalSearchPage(driver);
+                historicalSearchPage.EnsurePageLoaded();
+
             }
         }
         [TestMethod]
@@ -82,12 +87,16 @@ namespace UITests
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
-                var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
-                vitalRecordsPage.NavigateTo();
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
 
                 // act
+                homePage.VitalRecordslink.Click();
+                WebPageDelay.Pause();
 
                 // assert
+                var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
+                vitalRecordsPage.EnsurePageLoaded();
             }
         }
         [TestMethod]
@@ -96,12 +105,19 @@ namespace UITests
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
-                var birthCertificatePage = new PageObjectModels.BirthCertificatePage(driver);
-                birthCertificatePage.NavigateTo();
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
 
                 // act
+                homePage.VitalRecordslink.Click();
+                WebPageDelay.Pause();
+                var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
+                vitalRecordsPage.BirthCertificatelink.Click();
+                WebPageDelay.Pause();
 
                 // assert
+                var birthCertificatePage = new PageObjectModels.BirthCertificatePage(driver);
+                birthCertificatePage.EnsurePageLoaded();
             }
         }
         [TestMethod]
@@ -110,12 +126,19 @@ namespace UITests
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
-                var deathCertificatePage = new PageObjectModels.DeathCertificatePage(driver);
-                deathCertificatePage.NavigateTo();
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
 
                 // act
+                homePage.VitalRecordslink.Click();
+                WebPageDelay.Pause();
+                var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
+                vitalRecordsPage.DeathCertificatelink.Click();
+                WebPageDelay.Pause();
 
                 // assert
+                var deathCertificatePage = new PageObjectModels.DeathCertificatePage(driver);
+                deathCertificatePage.EnsurePageLoaded();
             }
         }
         [TestMethod]
@@ -124,26 +147,87 @@ namespace UITests
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
-                var publicMarriageCertificatePage = new PageObjectModels.PublicMarriageCertificatePage(driver);
-                publicMarriageCertificatePage.NavigateTo();
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
 
                 // act
+                homePage.VitalRecordslink.Click();
+                WebPageDelay.Pause();
+                var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
+                vitalRecordsPage.PublicMarriageCertificatelink.Click();
+                WebPageDelay.Pause();
 
                 // assert
+                var publicMarriageCertificatePage = new PageObjectModels.PublicMarriageCertificatePage(driver);
+                publicMarriageCertificatePage.EnsurePageLoaded();
             }
         }
+
+        [TestMethod]
+        public void ConfidentialMarriargeCertificatePage()
+        {
+            using (IWebDriver driver = new SelectDriver().Driver)
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+                homePage.VitalRecordslink.Click();
+                WebPageDelay.Pause();
+                var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
+                vitalRecordsPage.ConfidentialMarriageCertificatelink.Click();
+                WebPageDelay.Pause();
+
+                // assert
+                var confidentialMarriageCertificatePage = new PageObjectModels.ConfidentialMarriageCertificatePage(driver);
+                confidentialMarriageCertificatePage.EnsurePageLoaded();
+            }
+        }
+
         [TestMethod]
         public void PublicMarriargeApplicationPage()
         {
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
-                var publicMarriageApplicationPage = new PageObjectModels.PublicMarriageApplicationPage(driver);
-                publicMarriageApplicationPage.NavigateTo();
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
 
                 // act
+                homePage.MarriageApplicationlink.Click();
+                WebPageDelay.Pause();
+                var marriageLicenseApplicationPage = new PageObjectModels.MarriageLicenseApplicationPage(driver);
+                marriageLicenseApplicationPage.PublicMarriageButton.Click();
+                WebPageDelay.Pause();
 
                 // assert
+                var publicMarriageApplicationPage = new PageObjectModels.PublicMarriageApplicationPage(driver);
+                publicMarriageApplicationPage.EnsurePageLoaded();
+
+            }
+        }
+
+        [TestMethod]
+        public void ConfidentialMarriargeApplicationPage()
+        {
+            using (IWebDriver driver = new SelectDriver().Driver)
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+                homePage.MarriageApplicationlink.Click();
+                WebPageDelay.Pause();
+                var marriageLicenseApplicationPage = new PageObjectModels.MarriageLicenseApplicationPage(driver);
+                marriageLicenseApplicationPage.ConfidentialMarriageButton.Click();
+                WebPageDelay.Pause();
+
+                // assert
+                var confidentialMarriageApplicationPage = new PageObjectModels.ConfidentialMarriageApplicationPage(driver);
+                confidentialMarriageApplicationPage.EnsurePageLoaded();
+
             }
         }
 

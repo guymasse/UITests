@@ -19,12 +19,6 @@ namespace UITests.PageObjectModels
             Driver = driver;
         }
 
-        public void NavigateTo()
-        {
-            Driver.Navigate().GoToUrl(historicalUrl);
-            EnsurePageLoaded();
-        }
-
         public void EnsurePageLoaded()
         {
             bool pageHasLoaded = (Driver.Url == historicalUrl) && (Driver.Title == historicalTitle);
