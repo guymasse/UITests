@@ -20,8 +20,7 @@ namespace UITests.TestSetup
             Driver = new EdgeDriver("C:\\Automation\\Selenium\\edgedriver_win64", options);
         }
 
-        // Common Wait code
-
+ 
         public void Dispose()
         {
             Driver.Dispose();

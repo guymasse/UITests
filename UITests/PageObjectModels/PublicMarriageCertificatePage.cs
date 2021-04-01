@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 
 
@@ -7,23 +8,23 @@ namespace UITests.PageObjectModels
     class PublicMarriageCertificatePage
     {
         private readonly IWebDriver Driver;
-//        private const string publicMarriageCertificateUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/wizard/COPYREQUEST201S3";
-        private const string publicMarriageCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S3";
         public const string publicMarriageCertificateTitle = "Public Marriage Certificate Authorized Copies";
 
         public PublicMarriageCertificatePage(IWebDriver driver)
         {
             Driver = driver;
         }
-        public IWebElement PageText => Driver.FindElement(By.XPath("//h1[contains(.,'Public Marriage Certificate Authorized Copies')]"));
-        public void NavigateTo()
-        {
-            Driver.Navigate().GoToUrl(publicMarriageCertificateUrl);
-            EnsurePageLoaded();
-        }
+
+        // Common Wait code
+        WebDriverWait Wait => new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+
+        // Page Title
+        public IWebElement PageText =>
+            Wait.Until(e => e.FindElement(By.XPath("//h1[contains(.,'Public Marriage Certificate Authorized Copies')]")));
+        
         public void EnsurePageLoaded()
         {
-            bool pageHasLoaded = (Driver.Url.Substring(0, 55) == publicMarriageCertificateUrl) && (PageText.Text == publicMarriageCertificateTitle);
+            bool pageHasLoaded = (PageText.Text == publicMarriageCertificateTitle);
 
             if (!pageHasLoaded)
             {

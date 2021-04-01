@@ -8,8 +8,6 @@ namespace UITests.PageObjectModels
     class FBNRenewalPage
     {
         private readonly IWebDriver Driver;
-//        private const string PageUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/search/DOCSEARCH201S3";
-        private const string PageUrl = "http://dbkpvrecapp01:8100/cdweb/search/DOCSEARCH201S3";
         public const string PageTitle = "Fictitious Business Names Search - Renewal";
 
         public FBNRenewalPage(IWebDriver driver)
@@ -23,15 +21,10 @@ namespace UITests.PageObjectModels
         //Get page elements
         private IWebElement PageText =>
             Wait.Until(e => e.FindElement(By.XPath("//li[@data-role='list-divider'][contains(.,'Fictitious Business Names Search - Renewal')]")));
-        public void NavigateTo()
-        {
-            Driver.Navigate().GoToUrl(PageUrl);
-            WebPageDelay.Pause(10000);
-            EnsurePageLoaded();
-        }
+
         public void EnsurePageLoaded()
         {
-            bool pageHasLoaded = (Driver.Url == PageUrl) && (PageText.Text == PageTitle);
+            bool pageHasLoaded = (PageText.Text == PageTitle);
 
             if (!pageHasLoaded)
             {

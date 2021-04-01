@@ -2,12 +2,12 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 
+
 namespace UITests.PageObjectModels
 {
     class HomePage
     {
         private readonly IWebDriver Driver;
-//        private const string PageUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/";
         private const string PageUrl = "http://dbkpvrecapp01:8100/cdweb/";
         public const string PageTitle = "Self-Service";
 
@@ -74,6 +74,14 @@ namespace UITests.PageObjectModels
         // Marriage Application Link
         public IWebElement MarriageApplicationlink =>
             Wait.Until(e => e.FindElement(By.XPath("//h1[contains(.,'Marriage License Application')]")));
+
+        // Official Records Search Link
+        public IWebElement OfficialRecordsSearchlink =>
+            Wait.Until(e => e.FindElement(By.XPath("//div[@class='ss-action-internal'][contains(.,'Official Records Search')]")));
+
+        // FBN Application Link
+        public IWebElement FBNApplicationlink =>
+            Wait.Until(e => e.FindElement(By.XPath("//div[@class='ss-action-internal'][contains(.,'Fictitious Business Names Application')]")));
 
         public void NavigateTo()
         {

@@ -237,54 +237,152 @@ namespace UITests
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
-                var advanceSearchPage = new AdvanceSearchPage(driver);
-                advanceSearchPage.NavigateTo();
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
 
                 // act
+                homePage.OfficialRecordsSearchlink.Click();
+                WebPageDelay.Pause();
+                var officialRecordsSearchPagePage = new PageObjectModels.OfficialRecordsSearchPage(driver);
+                officialRecordsSearchPagePage.AdvanceSearchLink.Click();
+                WebPageDelay.Pause();
 
                 // assert
+                var advanceSearchPage = new AdvanceSearchPage(driver);
+                advanceSearchPage.EnsurePageLoaded();
             }
         }
+
         [TestMethod]
         public void DocumentNumberSearchPage()
         {
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
-                var documentNumberSearchPage = new DocumentNumberSearchPage(driver);
-                documentNumberSearchPage.NavigateTo();
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
 
                 // act
+                homePage.OfficialRecordsSearchlink.Click();
+                WebPageDelay.Pause();
+                var officialRecordsSearchPage = new PageObjectModels.OfficialRecordsSearchPage(driver);
+                officialRecordsSearchPage.DocumentNumberSearchLink.Click();
+                WebPageDelay.Pause();
 
                 // assert
+                var documentNumberSearchPage = new DocumentNumberSearchPage(driver);
+                documentNumberSearchPage.EnsurePageLoaded();
             }
         }
+
+        [TestMethod]
+        public void FBNSearchPage()
+        {
+            using (IWebDriver driver = new SelectDriver().Driver)
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+                homePage.FBNApplicationlink.Click();
+                WebPageDelay.Pause();
+                var fBNApplicationPage = new PageObjectModels.FBNApplicationPage(driver);
+                fBNApplicationPage.SearchFBNLink.Click();
+                WebPageDelay.Pause();
+
+                // assert
+                var fbnSearchPage = new FBNSearchPage(driver);
+                fbnSearchPage.EnsurePageLoaded();
+            }
+        }
+
         [TestMethod]
         public void FBNNewFilingPage()
         {
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
-                var fbnNewFilingPage = new FBNNewFilingPage(driver);
-                fbnNewFilingPage.NavigateTo();
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
 
                 // act
+                homePage.FBNApplicationlink.Click();
+                WebPageDelay.Pause();
+                var fBNApplicationPage = new PageObjectModels.FBNApplicationPage(driver);
+                fBNApplicationPage.NewFillingLink.Click();
+                WebPageDelay.Pause();
 
                 // assert
+                var fbnNewFilingPage = new FBNNewFilingPage(driver);
+                fbnNewFilingPage.EnsurePageLoaded();
+
             }
         }
+
         [TestMethod]
         public void FBNRenewalPage()
         {
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
-                var fbnRenewalPage = new FBNRenewalPage(driver);
-                fbnRenewalPage.NavigateTo();
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
 
                 // act
+                homePage.FBNApplicationlink.Click();
+                WebPageDelay.Pause();
+                var fBNApplicationPage = new PageObjectModels.FBNApplicationPage(driver);
+                fBNApplicationPage.RenewalLink.Click();
+                WebPageDelay.Pause();
 
                 // assert
+                var fbnRenewalPage = new FBNRenewalPage(driver);
+                fbnRenewalPage.EnsurePageLoaded();
+            }
+        }
+
+        [TestMethod]
+        public void FBNWithdrawalPage()
+        {
+            using (IWebDriver driver = new SelectDriver().Driver)
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+                homePage.FBNApplicationlink.Click();
+                WebPageDelay.Pause();
+                var fBNApplicationPage = new PageObjectModels.FBNApplicationPage(driver);
+                fBNApplicationPage.WithdrawalLink.Click();
+                WebPageDelay.Pause();
+
+                // assert
+                var fbnWithdrawalPage = new FBNWithdrawalPage(driver);
+                fbnWithdrawalPage.EnsurePageLoaded();
+            }
+        }
+
+        [TestMethod]
+        public void FBNAbandonmentPage()
+        {
+            using (IWebDriver driver = new SelectDriver().Driver)
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+                homePage.FBNApplicationlink.Click();
+                WebPageDelay.Pause();
+                var fBNApplicationPage = new PageObjectModels.FBNApplicationPage(driver);
+                fBNApplicationPage.AbandonmentLink.Click();
+                WebPageDelay.Pause();
+
+                // assert
+                var fBNAbandonmentPage = new FBNAbandonmentPage(driver);
+                fBNAbandonmentPage.EnsurePageLoaded();
             }
         }
 

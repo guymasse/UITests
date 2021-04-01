@@ -8,7 +8,6 @@ namespace UITests.PageObjectModels
     class AdvanceSearchPage
     {
         private readonly IWebDriver Driver;
- //       private const string PageUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/search/DOCSEARCH215S4";
         private const string PageUrl = "http://dbkpvrecapp01:8100/cdweb/search/DOCSEARCH215S4";
         public const string PageTitle = "Advanced Search - Web/Intranet";
 
@@ -34,7 +33,7 @@ namespace UITests.PageObjectModels
         public IWebElement AdvanceSearchCheckBox =>
             Wait.Until(e => e.FindElement(By.XPath("//label[@for='field_UseAdvancedSearch'][contains(.,'Use Advanced Name Searching (What is this?)')]")));
         //Document Search Button
-        public IWebElement DocumentSearchButtonr =>
+        public IWebElement DocumentSearchButton =>
             Wait.Until(e => e.FindElement(By.Id("searchButton")));
 
 
@@ -45,7 +44,7 @@ namespace UITests.PageObjectModels
         }
         public void EnsurePageLoaded()
         {
-            bool pageHasLoaded = (Driver.Url == PageUrl) && (PageText.Text == PageTitle);
+            bool pageHasLoaded = (PageText.Text == PageTitle);
 
             if (!pageHasLoaded)
             {
@@ -59,7 +58,7 @@ namespace UITests.PageObjectModels
         public void PreformSearch()
         {
 
-            DocumentSearchButtonr.Click();
+            DocumentSearchButton.Click();
         }
 
     }

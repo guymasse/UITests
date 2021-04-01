@@ -8,7 +8,6 @@ namespace UITests.PageObjectModels
     class PublicMarriageApplicationPage
     {
         private readonly IWebDriver Driver;
-//        private const string publicMarriageApplicationUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/wizard/WIZARD201S1";
         private const string publicMarriageApplicationUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/WIZARD201S1";
         public const string publicMarriageApplicationTitle = "Public Marriage License Requirements";
 
@@ -19,7 +18,10 @@ namespace UITests.PageObjectModels
         // Common Wait code
         WebDriverWait Wait => new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
 
-        public IWebElement PageText => Driver.FindElement(By.XPath("//h1[contains(.,'Public Marriage License Requirements')]"));
+        //Page Title
+        public IWebElement PageText =>
+            Wait.Until(e => e.FindElement(By.XPath("//h1[contains(.,'Public Marriage License Requirements')]")));
+
         public void NavigateTo()
         {
             Driver.Navigate().GoToUrl(publicMarriageApplicationUrl);
@@ -27,7 +29,7 @@ namespace UITests.PageObjectModels
         }
         public void EnsurePageLoaded()
         {
-            bool pageHasLoaded = (Driver.Url.Substring(0, 50) == publicMarriageApplicationUrl) && (PageText.Text == publicMarriageApplicationTitle);
+            bool pageHasLoaded = (PageText.Text == publicMarriageApplicationTitle);
 
             if (!pageHasLoaded)
             {

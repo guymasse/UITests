@@ -5,12 +5,12 @@ using System;
 
 namespace UITests.PageObjectModels
 {
-    class FBNNewFilingPage
+    class FBNAbandonmentPage
     {
         private readonly IWebDriver Driver;
-        public const string PageTitle = "New Filing Requirements";
+        public const string PageTitle = "Fictitious Business Names Search - Abandonment";
 
-        public FBNNewFilingPage(IWebDriver driver)
+        public FBNAbandonmentPage(IWebDriver driver)
         {
             Driver = driver;
         }
@@ -20,7 +20,7 @@ namespace UITests.PageObjectModels
 
         //Get page elements
         private IWebElement PageText =>
-            Wait.Until(e => e.FindElement(By.XPath("//h1[contains(.,'New Filing Requirements')]")));
+            Wait.Until(e => e.FindElement(By.XPath("//li[contains(.,'Fictitious Business Names Search - Abandonment')]")));
         public void EnsurePageLoaded()
         {
             bool pageHasLoaded = (PageText.Text == PageTitle);

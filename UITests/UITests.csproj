@@ -104,6 +104,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageObjectModels\FBNApplicationPage.cs" />
+    <Compile Include="PageObjectModels\FBNAbandonmentPage.cs" />
+    <Compile Include="PageObjectModels\FBNWithdrawalPage.cs" />
+    <Compile Include="PageObjectModels\FBNSearchPage.cs" />
+    <Compile Include="PageObjectModels\OfficialRecordsSearchPage.cs" />
     <Compile Include="PageObjectModels\AdvanceSearchPage.cs" />
     <Compile Include="PageObjectModels\BirthCertificatePage.cs" />
     <Compile Include="PageObjectModels\DeathCertificatePage.cs" />
