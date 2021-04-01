@@ -1,11 +1,6 @@
-﻿using System;
-using System.IO;
-using ApprovalTests;
-using ApprovalTests.Reporters;
+﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using UITests.PageObjectModels;
 using UITests.TestSetup;
@@ -23,19 +18,20 @@ namespace UITests
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
-                var deathCertificatePage = new PageObjectModels.DeathCertificatePage(driver);
-                deathCertificatePage.NavigateTo();
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+                homePage.VitalRecordslink.Click();
+                WebPageDelay.Pause();
+                var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
+                vitalRecordsPage.DeathCertificatelink.Click();
+                WebPageDelay.Pause();
 
                 // act
                 // Wizard Navigation Test code for radio buttons and next button
-                WebDriverWait Wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-
-                IWebElement selectedRadio =
-                    Wait.Until(e => e.FindElement(By.XPath("//label[@class='ui-btn ui-corner-all ui-btn-a ui-btn-icon-left ui-radio-off ui-first-child']")));
-                selectedRadio.Click();
+                var deathCertificatePage = new PageObjectModels.DeathCertificatePage(driver);
+                deathCertificatePage.SelectedRadio.Click();
                 WebPageDelay.Pause();
-                IWebElement nextButton = driver.FindElement(By.XPath("//a[@class='ss-right ui-link ui-btn ui-btn-a ui-icon-arrow-r ui-btn-icon-right ui-btn-inline ui-shadow ui-corner-all'][contains(.,'Next')]"));
-                nextButton.Click();
+                deathCertificatePage.NextButton.Click();
                 WebPageDelay.Pause();
 
                 // assert
@@ -47,27 +43,27 @@ namespace UITests
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+                homePage.MarriageApplicationlink.Click();
+                WebPageDelay.Pause();
+                var marriageLicenseApplicationPage = new PageObjectModels.MarriageLicenseApplicationPage(driver);
+                marriageLicenseApplicationPage.PublicMarriageButton.Click();
+                WebPageDelay.Pause();
                 var publicMarriageApplicationPage = new PageObjectModels.PublicMarriageApplicationPage(driver);
-                publicMarriageApplicationPage.NavigateTo();
                 // act
-
                 // Wizard Navigation Test code for radio buttons and next button and select dropdown
-                IWebElement nextButton = driver.FindElement(By.XPath("//a[@class='ss-right ui-link ui-btn ui-btn-a ui-icon-arrow-r ui-btn-icon-right ui-btn-inline ui-shadow ui-corner-all'][contains(.,'Next')]"));
-                nextButton.Click();
+                publicMarriageApplicationPage.NextButton.Click();
                 WebPageDelay.Pause();
 
-                IWebElement selectedRadio = driver.FindElement(By.XPath("//label[@class='ui-btn ui-corner-all ui-btn-a ui-btn-icon-left ui-radio-off ui-last-child']"));
-                selectedRadio.Click();
+                publicMarriageApplicationPage.SelectedRadio.Click();
                 WebPageDelay.Pause();
 
-                IWebElement nextButton2 = driver.FindElement(By.XPath("//a[@class='ss-right ui-link ui-btn ui-btn-a ui-icon-arrow-r ui-btn-icon-right ui-btn-inline ui-shadow ui-corner-all'][contains(.,'Next')]"));
-                nextButton2.Click();
+                publicMarriageApplicationPage.NextButton.Click();
                 WebPageDelay.Pause();
 
-                IWebElement idTypeDropDown = driver.FindElement(By.XPath("//select[contains(@id,'field_GroomIDType')]"));
-                SelectElement idType = new SelectElement(idTypeDropDown);
+                SelectElement idType = new SelectElement(publicMarriageApplicationPage.IdTypeDropDown);
                 idType.SelectByText("Passport");
-
 
                 // assert
                 Assert.AreEqual("Passport", idType.SelectedOption.Text);
@@ -80,8 +76,14 @@ namespace UITests
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+                homePage.OfficialRecordsSearchlink.Click();
+                WebPageDelay.Pause();
+                var officialRecordsSearchPagePage = new PageObjectModels.OfficialRecordsSearchPage(driver);
+                officialRecordsSearchPagePage.AdvanceSearchLink.Click();
+                WebPageDelay.Pause();
                 var advanceSearchPage = new AdvanceSearchPage(driver);
-                advanceSearchPage.NavigateTo();
                 // act
 
                 // Code to check a box

@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 
 
@@ -7,22 +8,32 @@ namespace UITests.PageObjectModels
     class DeathCertificatePage
     {
         private readonly IWebDriver Driver;
-//        private const string deathCertificateUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/wizard/COPYREQUEST201S2";
-        private const string deathCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S2";
         public const string deathCertificateTitle = "Death Certificate Authorized Copies";
+  
         public DeathCertificatePage(IWebDriver driver)
         {
             Driver = driver;
         }
-        public IWebElement PageText => Driver.FindElement(By.XPath("//h1[contains(.,'Death Certificate Authorized Copies')]"));
-        public void NavigateTo()
-        {
-            Driver.Navigate().GoToUrl(deathCertificateUrl);
-            EnsurePageLoaded();
-        }
+
+        // Common Wait code
+        WebDriverWait Wait => new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+
+        // Get page Text
+        private IWebElement PageText =>
+            Wait.Until(e => e.FindElement(By.XPath("//h1[contains(.,'Death Certificate Authorized Copies')]")));
+
+        //Get Radio Button
+        public IWebElement SelectedRadio =>
+            Wait.Until(e => e.FindElement(By.XPath("//label[@class='ui-btn ui-corner-all ui-btn-a ui-btn-icon-left ui-radio-off ui-first-child']")));
+
+
+        // Get Next Button
+        public IWebElement NextButton =>
+            Wait.Until(e => e.FindElement(By.XPath("//a[@class='ss-right ui-link ui-btn ui-btn-a ui-icon-arrow-r ui-btn-icon-right ui-btn-inline ui-shadow ui-corner-all'][contains(.,'Next')]")));
+
         public void EnsurePageLoaded()
         {
-            bool pageHasLoaded = (Driver.Url.Substring(0, 55) == deathCertificateUrl) && (PageText.Text == deathCertificateTitle);
+            bool pageHasLoaded = (PageText.Text == deathCertificateTitle);
 
             if (!pageHasLoaded)
             {
