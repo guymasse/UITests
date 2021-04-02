@@ -20,7 +20,7 @@ namespace UITests.PageObjectModels
 
         // Page Text
         public IWebElement PageText =>
-            Wait.Until(e => e.FindElement(By.XPath("//h1[contains(.,'Public Marriage License Requirements')]")));
+            Wait.Until(e => e.FindElement(By.XPath("//h1[contains(.,'Marriage License Application')]")));
 
         // Public Marriage Button
         public IWebElement PublicMarriageButton =>

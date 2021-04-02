@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using UITests.PageObjectModels;
 using UITests.TestSetup;
 
@@ -32,8 +31,8 @@ namespace UITests
                 // arrange
                 var homePage = new HomePage(driver);
                 homePage.NavigateTo();
-                var advanceSearchPage = new AdvanceSearchPage(driver);
-                advanceSearchPage.NavigateTo();
+                homePage.OfficialRecordsSearchlink.Click();
+                WebPageDelay.Pause();
                 driver.Navigate().Back();
                 homePage.EnsurePageLoaded();
                 // act
@@ -48,12 +47,13 @@ namespace UITests
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
-                var advanceSearchPage = new AdvanceSearchPage(driver);
-                advanceSearchPage.NavigateTo();
                 var homePage = new HomePage(driver);
                 homePage.NavigateTo();
+                homePage.OfficialRecordsSearchlink.Click();
+                WebPageDelay.Pause();
                 driver.Navigate().Back();
                 driver.Navigate().Forward();
+                driver.Navigate().Back();
                 homePage.EnsurePageLoaded();
                 // act
 
@@ -73,7 +73,6 @@ namespace UITests
 
                 // act
                 homePage.HistoricalIndexlink.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var historicalSearchPage = new PageObjectModels.HistoricalSearchPage(driver);
@@ -92,7 +91,6 @@ namespace UITests
 
                 // act
                 homePage.VitalRecordslink.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
@@ -110,10 +108,8 @@ namespace UITests
 
                 // act
                 homePage.VitalRecordslink.Click();
-                WebPageDelay.Pause();
                 var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
                 vitalRecordsPage.BirthCertificatelink.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var birthCertificatePage = new PageObjectModels.BirthCertificatePage(driver);
@@ -131,10 +127,8 @@ namespace UITests
 
                 // act
                 homePage.VitalRecordslink.Click();
-                WebPageDelay.Pause();
                 var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
                 vitalRecordsPage.DeathCertificatelink.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var deathCertificatePage = new PageObjectModels.DeathCertificatePage(driver);
@@ -152,10 +146,8 @@ namespace UITests
 
                 // act
                 homePage.VitalRecordslink.Click();
-                WebPageDelay.Pause();
                 var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
                 vitalRecordsPage.PublicMarriageCertificatelink.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var publicMarriageCertificatePage = new PageObjectModels.PublicMarriageCertificatePage(driver);
@@ -174,14 +166,31 @@ namespace UITests
 
                 // act
                 homePage.VitalRecordslink.Click();
-                WebPageDelay.Pause();
                 var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
                 vitalRecordsPage.ConfidentialMarriageCertificatelink.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var confidentialMarriageCertificatePage = new PageObjectModels.ConfidentialMarriageCertificatePage(driver);
                 confidentialMarriageCertificatePage.EnsurePageLoaded();
+            }
+        }
+
+        [TestMethod]
+        public void MarriargeLicenseApplicationPage()
+        {
+            using (IWebDriver driver = new SelectDriver().Driver)
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+                homePage.MarriageApplicationlink.Click();
+
+                // assert
+                var marriageLicenseApplicationPage = new PageObjectModels.MarriageLicenseApplicationPage(driver);
+                marriageLicenseApplicationPage.EnsurePageLoaded();
+
             }
         }
 
@@ -196,10 +205,8 @@ namespace UITests
 
                 // act
                 homePage.MarriageApplicationlink.Click();
-                WebPageDelay.Pause();
                 var marriageLicenseApplicationPage = new PageObjectModels.MarriageLicenseApplicationPage(driver);
                 marriageLicenseApplicationPage.PublicMarriageButton.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var publicMarriageApplicationPage = new PageObjectModels.PublicMarriageApplicationPage(driver);
@@ -219,15 +226,31 @@ namespace UITests
 
                 // act
                 homePage.MarriageApplicationlink.Click();
-                WebPageDelay.Pause();
                 var marriageLicenseApplicationPage = new PageObjectModels.MarriageLicenseApplicationPage(driver);
                 marriageLicenseApplicationPage.ConfidentialMarriageButton.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var confidentialMarriageApplicationPage = new PageObjectModels.ConfidentialMarriageApplicationPage(driver);
                 confidentialMarriageApplicationPage.EnsurePageLoaded();
 
+            }
+        }
+
+        [TestMethod]
+        public void OfficialRecordsSearchPage()
+        {
+            using (IWebDriver driver = new SelectDriver().Driver)
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+                homePage.OfficialRecordsSearchlink.Click();
+
+                // assert
+                var officialRecordsSearchPagePage = new PageObjectModels.OfficialRecordsSearchPage(driver);
+                officialRecordsSearchPagePage.EnsurePageLoaded();
             }
         }
 
@@ -242,14 +265,32 @@ namespace UITests
 
                 // act
                 homePage.OfficialRecordsSearchlink.Click();
-                WebPageDelay.Pause();
                 var officialRecordsSearchPagePage = new PageObjectModels.OfficialRecordsSearchPage(driver);
                 officialRecordsSearchPagePage.AdvanceSearchLink.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var advanceSearchPage = new AdvanceSearchPage(driver);
                 advanceSearchPage.EnsurePageLoaded();
+            }
+        }
+
+        [TestMethod]
+        public void BasicSearchPage()
+        {
+            using (IWebDriver driver = new SelectDriver().Driver)
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+                homePage.OfficialRecordsSearchlink.Click();
+                var officialRecordsSearchPagePage = new PageObjectModels.OfficialRecordsSearchPage(driver);
+                officialRecordsSearchPagePage.BasicSearchLink.Click();
+
+                // assert
+                var basicSearchPage = new BasicSearchPage(driver);
+                basicSearchPage.EnsurePageLoaded();
             }
         }
 
@@ -264,14 +305,70 @@ namespace UITests
 
                 // act
                 homePage.OfficialRecordsSearchlink.Click();
-                WebPageDelay.Pause();
                 var officialRecordsSearchPage = new PageObjectModels.OfficialRecordsSearchPage(driver);
                 officialRecordsSearchPage.DocumentNumberSearchLink.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var documentNumberSearchPage = new DocumentNumberSearchPage(driver);
                 documentNumberSearchPage.EnsurePageLoaded();
+            }
+        }
+
+        [TestMethod]
+        public void DocumentTypeSearchPage()
+        {
+            using (IWebDriver driver = new SelectDriver().Driver)
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+                homePage.OfficialRecordsSearchlink.Click();
+                var officialRecordsSearchPage = new PageObjectModels.OfficialRecordsSearchPage(driver);
+                officialRecordsSearchPage.DocumentTypeSearchLink.Click();
+
+                // assert
+                var documentTypeSearchPage = new DocumentTypeSearchPage(driver);
+                documentTypeSearchPage.EnsurePageLoaded();
+            }
+        }
+
+        [TestMethod]
+        public void MapBookPageSearchPage()
+        {
+            using (IWebDriver driver = new SelectDriver().Driver)
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+                homePage.OfficialRecordsSearchlink.Click();
+                var officialRecordsSearchPage = new PageObjectModels.OfficialRecordsSearchPage(driver);
+                officialRecordsSearchPage.MapBookPageSearchLink.Click();
+
+                // assert
+                var mapBookPageSearchPage = new MapBookPageSearchPage(driver);
+                mapBookPageSearchPage.EnsurePageLoaded();
+            }
+        }
+        
+        [TestMethod]
+        public void FBNApplicationPage()
+        {
+            using (IWebDriver driver = new SelectDriver().Driver)
+            {
+                // arrange
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+                homePage.FBNApplicationlink.Click();
+
+                // assert
+                var fBNApplicationPage = new PageObjectModels.FBNApplicationPage(driver);
+                fBNApplicationPage.EnsurePageLoaded();
             }
         }
 
@@ -286,10 +383,8 @@ namespace UITests
 
                 // act
                 homePage.FBNApplicationlink.Click();
-                WebPageDelay.Pause();
                 var fBNApplicationPage = new PageObjectModels.FBNApplicationPage(driver);
                 fBNApplicationPage.SearchFBNLink.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var fbnSearchPage = new FBNSearchPage(driver);
@@ -308,10 +403,8 @@ namespace UITests
 
                 // act
                 homePage.FBNApplicationlink.Click();
-                WebPageDelay.Pause();
                 var fBNApplicationPage = new PageObjectModels.FBNApplicationPage(driver);
                 fBNApplicationPage.NewFillingLink.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var fbnNewFilingPage = new FBNNewFilingPage(driver);
@@ -331,10 +424,8 @@ namespace UITests
 
                 // act
                 homePage.FBNApplicationlink.Click();
-                WebPageDelay.Pause();
                 var fBNApplicationPage = new PageObjectModels.FBNApplicationPage(driver);
                 fBNApplicationPage.RenewalLink.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var fbnRenewalPage = new FBNRenewalPage(driver);
@@ -353,10 +444,8 @@ namespace UITests
 
                 // act
                 homePage.FBNApplicationlink.Click();
-                WebPageDelay.Pause();
                 var fBNApplicationPage = new PageObjectModels.FBNApplicationPage(driver);
                 fBNApplicationPage.WithdrawalLink.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var fbnWithdrawalPage = new FBNWithdrawalPage(driver);
@@ -375,10 +464,8 @@ namespace UITests
 
                 // act
                 homePage.FBNApplicationlink.Click();
-                WebPageDelay.Pause();
                 var fBNApplicationPage = new PageObjectModels.FBNApplicationPage(driver);
                 fBNApplicationPage.AbandonmentLink.Click();
-                WebPageDelay.Pause();
 
                 // assert
                 var fBNAbandonmentPage = new FBNAbandonmentPage(driver);

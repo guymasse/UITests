@@ -23,7 +23,6 @@ namespace UITests
                 // Code to submict a document number query
                 documentNumberSearchPage.EnterDocumentNumber("2017000017");
                 documentNumberSearchPage.PreformSearch();
-                WebPageDelay.Pause(5000);
 
                 // assert
                 Assert.AreEqual("Document Number Search - Web/Intranet Document Number equals 2017000017", documentNumberSearchPage.SearchResult.Text);

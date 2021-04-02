@@ -104,6 +104,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageObjectModels\MapBookPageSearchPage.cs" />
+    <Compile Include="PageObjectModels\DocumentTypeSearchPage.cs" />
+    <Compile Include="PageObjectModels\BasicSearchPage.cs" />
     <Compile Include="PageObjectModels\FBNApplicationPage.cs" />
     <Compile Include="PageObjectModels\FBNAbandonmentPage.cs" />
     <Compile Include="PageObjectModels\FBNWithdrawalPage.cs" />

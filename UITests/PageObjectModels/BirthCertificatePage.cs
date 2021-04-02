@@ -8,7 +8,6 @@ namespace UITests.PageObjectModels
     class BirthCertificatePage
     {
         private readonly IWebDriver Driver;
-//        private const string birthCertificateUrl = "https://ecsworkbench.tyler-eagle.com/cdweb/wizard/COPYREQUEST201S1";
         private const string birthCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S1";
         public const string birthCertificateTitle = "Birth Certificate Authorized Copies";
 
@@ -125,7 +124,7 @@ namespace UITests.PageObjectModels
         }
         public void EnsurePageLoaded()
         {
-            bool pageHasLoaded = (Driver.Url.Substring(0, 55) == birthCertificateUrl) && (PageText.Text == birthCertificateTitle);
+            bool pageHasLoaded = (PageText.Text == birthCertificateTitle);
 
             if (!pageHasLoaded)
             {
