@@ -8,7 +8,6 @@ namespace UITests.PageObjectModels
     class BirthCertificatePage
     {
         private readonly IWebDriver Driver;
-        private const string birthCertificateUrl = "http://dbkpvrecapp01:8100/cdweb/wizard/COPYREQUEST201S1";
         public const string birthCertificateTitle = "Birth Certificate Authorized Copies";
 
         public BirthCertificatePage(IWebDriver driver)
@@ -117,12 +116,7 @@ namespace UITests.PageObjectModels
             Wait.Until(e => e.FindElement(By.XPath("//b[contains(.,'Thank you for your order.')]")));
 
 
-        public void NavigateTo()
-        {
-            Driver.Navigate().GoToUrl(birthCertificateUrl);
-            EnsurePageLoaded();
-        }
-        public void EnsurePageLoaded()
+         public void EnsurePageLoaded()
         {
             bool pageHasLoaded = (PageText.Text == birthCertificateTitle);
 

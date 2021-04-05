@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using UITests.PageObjectModels;
 using UITests.TestSetup;
 
 namespace UITests
@@ -17,11 +18,17 @@ namespace UITests
             using (IWebDriver driver = new SelectDriver().Driver)
             {
                 // arrange
-                var birthCertificatePage = new PageObjectModels.BirthCertificatePage(driver);
-                birthCertificatePage.NavigateTo();
+                var homePage = new HomePage(driver);
+                homePage.NavigateTo();
+
+                // act
+                homePage.VitalRecordslink.Click();
+                var vitalRecordsPage = new PageObjectModels.VitalRecordsPage(driver);
+                vitalRecordsPage.BirthCertificatelink.Click();
 
                 // act
                 // Step 1 of Wizard
+                var birthCertificatePage = new PageObjectModels.BirthCertificatePage(driver);
                 birthCertificatePage.Step1IAm.Click();
                 birthCertificatePage.NextButton.Click();
 
