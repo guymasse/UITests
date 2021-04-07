@@ -1,14 +1,14 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-
+using UITests.TestSetup;
 
 namespace UITests.PageObjectModels
 {
     class HomePage
     {
         private readonly IWebDriver Driver;
-        private const string PageUrl = "http://dbkpvrecapp01:8100/cdweb/";
+        private readonly string PageUrl = new SelectUrl().TestUrl;
         public const string PageTitle = "Self-Service";
 
         public HomePage(IWebDriver driver)
@@ -91,7 +91,7 @@ namespace UITests.PageObjectModels
 
         public void EnsurePageLoaded()
         {
-            bool pageHasLoaded = (Driver.Url == PageUrl) && (Driver.Title == PageTitle);
+            bool pageHasLoaded = (Driver.Title == PageTitle);
 
             if (!pageHasLoaded)
             {

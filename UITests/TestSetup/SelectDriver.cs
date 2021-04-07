@@ -26,4 +26,12 @@ namespace UITests.TestSetup
             Driver.Dispose();
         }
     }
+    class SelectUrl
+    {
+        public String TestUrl { get; private set; }
+        public SelectUrl()
+        {
+            TestUrl = "http://dbkpvrecapp01:8100/cdweb";
+        }
+    }
 }
